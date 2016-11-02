@@ -11,6 +11,7 @@ var setDate1 = function(){
 	var str1 = year+'-'+month+'-'+day;
 	return str1;
 }
+
 var setDate2 = function(){
 	var str2 = year+month+day;
 	return str2;
