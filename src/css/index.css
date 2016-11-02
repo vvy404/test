@@ -1,0 +1,151 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-touch-callout: none;
+    width: 100%;
+    height: 100%;
+
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.swiper-slide-active {
+    background-size: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 96%;
+}
+.swiper-slide img {
+    -webkit-transform: translateZ(0);
+    display: block;
+    width: 100%;
+    /* margin-left: 2.5%; */
+}
+/*one-slide*/
+.one-slide-1 ,.two-slide-1,.three-slide-1,.four-slide-1,.five-slide-1,.six-slide-1{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+.one-slide-1>img ,.two-slide-1>img,.three-slide-1>img,.four-slide-1>img,.five-slide-1>img,.six-slide-1>img{ 
+    height: 100%;
+}
+
+.startmusic {
+    position: absolute;
+    width: 25px;
+    top: 15px;
+    right: 23px;
+    z-index: 100;
+}
+.startmusic > img {
+    width:100% ;
+}
+.stopmusic {
+    position: absolute;
+    width: 39px;
+    top: 8px;
+    right: 15px;
+    z-index: 100;
+}
+.stopmusic > img {
+  width: 100%;
+}
+.up {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.up > img {
+  width: 23px;
+  display: inline-block;
+}
+@-webkit-keyframes passdown {
+    0% {
+        bottom: 4%;
+    }
+    12% {
+        bottom: 3.8%;
+    }
+    24% {
+        bottom: 3.6%;
+    }
+    38% {
+        bottom: 3.4%;
+    }
+    50% {
+        bottom: 3.2%;
+    }
+    62% {
+        bottom: 3.4%;
+    }
+    75% {
+        bottom: 3.6%;
+    }
+    88% {
+        bottom: 3.8%;
+    }
+    100% {
+        bottom: 4%;
+    }
+}
+.up {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    left:0;
+    right:0;
+    margin:0 auto;
+    bottom: 4%;
+    -webkit-animation-name: passdown;
+    -webkit-animation-duration: 1.3s;
+    -webkit-animation-iteration-count: infinite;
+    z-index: 50;
+}
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.btn{
+    position: absolute;
+    bottom: 5%;
+    width: 36%;
+    margin-left: 55%;
+}
+.mengceng{
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+.mengceng >img{
+    height: 100%
+}
