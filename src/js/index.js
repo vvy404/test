@@ -3,11 +3,19 @@ var base = dd.base || {};
 //判断环境，如果是支付宝则在body标签上加上‘alipay’
 var UAEnv = {
     ua: navigator.userAgent.toLowerCase(),
-    isAlipay: false,
     testAli: function(){
         if (/alipay/i.test(ua)) {
-           isAdrAlipay = true;
-           return isAlipay; 
+           return true; 
+        }
+    },
+    testAndroid: function(){
+        if(/android/i.test(ua)) {
+            return true;
+        }
+    },
+    testIOS : function(){
+        if(/iphone/i.test(ua)) {
+            return true;
         }
     }
 };
@@ -29,6 +37,17 @@ var musicControl = {
         });
     }
 };
+var mainFuc = {
+    initFontSize : function(){
+        var docuH = document.documentElement.clientHeight,
+                    docuW = document.documentElement.clientWidth,
+                    html = document.getElementsByTagName('html')[0];
+        var num = docuW / 375;
+        html.style.fontSize = num * 16 + "px";
+        document.body.style.fontSize = num*16 +"px";
+    },
+
+}
 var shareInfo = {
     actMain: window.actMain,
     share_data: {

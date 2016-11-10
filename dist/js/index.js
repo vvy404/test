@@ -3,46 +3,64 @@ var base = dd.base || {};
 //判断环境，如果是支付宝则在body标签上加上‘alipay’
 var UAEnv = {
     ua: navigator.userAgent.toLowerCase(),
-    isAlipay: false,
     testAli: function(){
         if (/alipay/i.test(ua)) {
-           isAdrAlipay = true;
-           return isAlipay; 
+           return true; 
+        }
+    },
+    testAndroid: function(){
+        if(/android/i.test(ua)) {
+            return true;
+        }
+    },
+    testIOS : function(){
+        if(/iphone/i.test(ua)) {
+            return true;
         }
     }
 };
 var musicControl = {
     pauseMusic: document.querySelector("#playmusic"),
     initMusic: function(){
-        var that=this,
-        base.touch(that.pauseMusic, function(ev) {
-            if (that.that.pauseMusic.className === "stopmusic") {
-                that.pauseMusic.classList.remove("stopmusic");
-                that.pauseMusic.classList.add("startmusic");
+        base.touch(pauseMusic, function(ev) {
+            if (pauseMusic.className === "stopmusic") {
+                pauseMusic.classList.remove("stopmusic");
+                pauseMusic.classList.add("startmusic");
                 document.querySelector("audio").pause();
-                that.pauseMusic.querySelector("img").setAttribute("src", "images/stopmusic.png");
+                pauseMusic.querySelector("img").setAttribute("src", "images/stopmusic.png");
             } else {
-                that.pauseMusic.classList.remove("startmusic");
-                that.pauseMusic.classList.add("stopmusic");
+                pauseMusic.classList.remove("startmusic");
+                pauseMusic.classList.add("stopmusic");
                 document.querySelector("audio").play();
-                that.pauseMusic.querySelector("img").setAttribute("src", "images/startmusic.gif");
+                pauseMusic.querySelector("img").setAttribute("src", "images/startmusic.gif");
             }
         });
     }
 };
+var mainFuc = {
+    initFontSize : function(){
+        var docuH = document.documentElement.clientHeight,
+                    docuW = document.documentElement.clientWidth,
+                    html = document.getElementsByTagName('html')[0];
+        var num = docuW / 375;
+        html.style.fontSize = num * 16 + "px";
+        document.body.style.fontSize = num*16 +"px";
+    },
+
+}
 var shareInfo = {
     actMain: window.actMain,
     share_data: {
-        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-10-31/index.html',
-        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-10-31/images/share.jpg',
-        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-10-31/images/share.jpg',
-        share_title: '我是谁',
-        share_content: '我来自哪',
+        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/index.html',
+        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
+        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
+        share_title: '123',
+        share_content: '456',
         share_from: "滴滴出行"
     },
     initShareInfo: function(){
-        if (this.actMain.isApp()) {
-            share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-10-31/pages/index.html?ddfrom=native&v=' + Math.random();
+        if (actMain.isApp()) {
+            share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=native&v=' + Math.random();
         };
         if (location.href.indexOf('ddfrom=native') != -1) {
             var index = location.href.indexOf('v=') + 2;
@@ -52,11 +70,11 @@ var shareInfo = {
         };
         didi.initShare(share_data);
         weixin.initShare(share_data, function() {
-            this.actMain.ajax({
-                url: protocol + '//static.xiaojukeji.com/site/pages/2016-10-31/pages/index.html?ddfrom=SNS&v=' + Math.random(),
+            actMain.ajax({
+                url: protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=SNS&v=' + Math.random(),
                 method: 'GET'
             });
-            Omega.trackEvent('taxi_activity', 'weixin_shared');
+            Omega.trackEvent('taxi_activity_20161020', 'weixin_shared');
         });
     }
     
@@ -115,15 +133,15 @@ window.addEventListener('DOMContentLoaded', function(ev) {
 
     var actMain = window.actMain;
     var share_data = {
-        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-10-31/index.html',
-        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-10-31/images/share.jpg',
-        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-10-31/images/share.jpg',
-        share_title: '我是谁',
-        share_content: '我来自哪',
+        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/index.html',
+        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
+        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
+        share_title: '123',
+        share_content: '456',
         share_from: "滴滴出行"
     };
     if (actMain.isApp()) {
-        share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-10-31/pages/index.html?ddfrom=native&v=' + Math.random();
+        share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=native&v=' + Math.random();
     };
     if (location.href.indexOf('ddfrom=native') != -1) {
         var index = location.href.indexOf('v=') + 2;
@@ -134,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function(ev) {
     didi.initShare(share_data);
     weixin.initShare(share_data, function() {
         actMain.ajax({
-            url: protocol + '//static.xiaojukeji.com/site/pages/2016-10-31/pages/index.html?ddfrom=SNS&v=' + Math.random(),
+            url: protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=SNS&v=' + Math.random(),
             method: 'GET'
         });
         Omega.trackEvent('taxi_activity_20161020', 'weixin_shared');
