@@ -51,16 +51,16 @@ var mainFuc = {
 var shareInfo = {
     actMain: window.actMain,
     share_data: {
-        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/index.html',
-        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
-        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
-        share_title: '123',
-        share_content: '456',
+        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-22/index.html',
+        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-22/images/share.jpg',
+        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-22/images/share.jpg',
+        share_title: 'title',
+        share_content: 'content',
         share_from: "滴滴出行"
     },
     initShareInfo: function(){
         if (actMain.isApp()) {
-            share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=native&v=' + Math.random();
+            share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-11-22/pages/index.html?ddfrom=native&v=' + Math.random();
         };
         if (location.href.indexOf('ddfrom=native') != -1) {
             var index = location.href.indexOf('v=') + 2;
@@ -71,7 +71,7 @@ var shareInfo = {
         didi.initShare(share_data);
         weixin.initShare(share_data, function() {
             actMain.ajax({
-                url: protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=SNS&v=' + Math.random(),
+                url: protocol + '//static.xiaojukeji.com/site/pages/2016-11-22/pages/index.html?ddfrom=SNS&v=' + Math.random(),
                 method: 'GET'
             });
             Omega.trackEvent('taxi_activity_20161020', 'weixin_shared');
@@ -133,15 +133,15 @@ window.addEventListener('DOMContentLoaded', function(ev) {
 
     var actMain = window.actMain;
     var share_data = {
-        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/index.html',
-        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
-        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-9/images/share.jpg',
-        share_title: '123',
-        share_content: '456',
+        share_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-22/index.html',
+        share_icon_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-22/images/share.jpg',
+        share_img_url: 'http://static.diditaxi.com.cn/site/pages/2016-11-22/images/share.jpg',
+        share_title: 'title',
+        share_content: 'content',
         share_from: "滴滴出行"
     };
     if (actMain.isApp()) {
-        share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=native&v=' + Math.random();
+        share_data.share_url = protocol + '//static.xiaojukeji.com/site/pages/2016-11-22/pages/index.html?ddfrom=native&v=' + Math.random();
     };
     if (location.href.indexOf('ddfrom=native') != -1) {
         var index = location.href.indexOf('v=') + 2;
@@ -152,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function(ev) {
     didi.initShare(share_data);
     weixin.initShare(share_data, function() {
         actMain.ajax({
-            url: protocol + '//static.xiaojukeji.com/site/pages/2016-11-9/pages/index.html?ddfrom=SNS&v=' + Math.random(),
+            url: protocol + '//static.xiaojukeji.com/site/pages/2016-11-22/pages/index.html?ddfrom=SNS&v=' + Math.random(),
             method: 'GET'
         });
         Omega.trackEvent('taxi_activity_20161020', 'weixin_shared');
