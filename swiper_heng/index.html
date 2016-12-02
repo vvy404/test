@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			outline: none
+		}
+		.banner{
+			width: 100%;
+			overflow-x: scroll;
+    		white-space: nowrap;
+    		-webkit-overflow-scrolling: touch;/*关键*/
+    		transition:all 2000 ease-in-out 100;
+    		-webkit-transition:all 1000 ease-in-out 100;
+
+		}
+		li{
+			width: 300px;
+			display: inline-block;
+			text-align: center;
+    		/*vertical-align: top;*/
+		}
+	</style>
+</head>
+<body>
+<ul class="banner">
+	<li><img src="images/01.jpg"></li>
+	<li><img src="images/02.jpg"></li>
+	<li><img src="images/03.jpg"></li>
+	<li><img src="images/04.jpg"></li>
+</ul>
+<script src="zepto.min.js"></script>
+<script>
+	var a = $("img");
+	
+	var ul = document.querySelector('ul');
+	ul.addEventListener('touchend',function(){
+		[].forEach.call(a,function (item,index) {
+			console.log(a[index].offsetLeft);
+			// debugger;
+		});
+	})
+</script>
+</body>
+</html>
