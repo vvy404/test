@@ -39,12 +39,37 @@
 	var a = $("img");
 	
 	var ul = document.querySelector('ul');
-	ul.addEventListener('touchend',function(){
-		[].forEach.call(a,function (item,index) {
-			console.log(a[index].offsetLeft);
-			// debugger;
-		});
-	})
+	ul.addEventListener('touchstart',function(ev){
+		// ev.preventDefault();
+		var finger = ev.changedTouches[0].identifier; // 标识唯一一根手指。
+		var clientX = ev.changedTouches[0].clientX; 
+		var pageX = ev.changedTouches[0].pageX; 
+		console.log(clientX,pageX);
+
+		// debugger;
+	},false);
+	ul.addEventListener('touchmove',function(ev){
+		// ev.preventDefault();
+		// debugger;
+	},false);
+	ul.addEventListener('touchend',function(ev){
+		// ev.preventDefault();
+		var finger = ev.changedTouches[0].identifier; // 标识唯一一根手指,与初始时。
+		var clientX = ev.changedTouches[0].clientX; 
+		var pageX = ev.changedTouches[0].pageX; 
+		console.log(clientX,pageX);
+
+		debugger;
+	},false);
+	
+	
+
+	// ul.addEventListener('touchend',function(){
+	// 	[].forEach.call(a,function (item,index) {
+	// 		console.log(a[index].offsetLeft);
+	// 		// debugger;
+	// 	});
+	// })
 </script>
 </body>
 </html>
